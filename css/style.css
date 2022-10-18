@@ -1,4 +1,4 @@
-/* add keyframed step part one!! */
+/* add keyframed animation */
 @-webkit-keyframes logomove {
     from {width: 25px;}
     to {width: 475px;}
@@ -6,12 +6,13 @@
     to {opacity: 1;}
 }
 
+/* add animation to logo */
 #logo {
     animation-name: logomove;
     animation-duration: 5s;
 }
 
-/* 2: Edit the body element to use the Poppins font (using Google fonts) with serif as a backup. */
+/* Body element uses poppins with backup of serif and has a background image "concrete_seamless.png" */
 @font-face {
     font-family: 'Poppins';
     font-style: normal;
@@ -25,12 +26,13 @@ body {
     background: #f1f1f1 url('../images/concrete_seamless.png')
 }
 
+/* styling header to use flex and match the example */
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-/* Edit the css for the nav_links class to use flex to match our example. Do not modify the list items or the links - modify the nav_links class to use flex.  */
+/* modifying nav_links to use flex and match example  */
 
 .nav_links {
     display: flex;
@@ -38,12 +40,14 @@ header {
     justify-content: center;
     align-content: center;
 }
+/* styling links to be same color after visited. */
 a { 
     color: blue;
 }
 a:visited {
     color: blue; 
 }
+/* styling headers that are only direct children of card class to round corners, add color, and add border */
 .card > header {
     background: #288088;
     border: 2px solid #45ADAD;
@@ -51,10 +55,12 @@ a:visited {
     /* top-left | top-right | bottom-right | bottom-left */
     border-radius: 50px 50px 0 0; 
 }
+/* styling card class to have flex-basis and border-radius */
 .card {
     border-radius: 50px 50px 0 0;
     flex-basis: 450px;
 }
+/* styling pricing class to use flex and match example */
 .pricing {
     display: flex;
     flex-direction: row;
@@ -62,12 +68,13 @@ a:visited {
     align-content: center;
     justify-content: center; 
 }
-
+/* styling images in gallery to have a border, width and margin */
 .gallery img {
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
 }
+/* styling gallery to use flex and match example */
 .gallery {
     display: flex;
     flex-flow: row wrap;
@@ -77,27 +84,33 @@ a:visited {
 /* 900 px and bigger media query */
 
 @media screen and (min-width: 900px) {
+    /* styling header to use flex and match example */
     header {
         flex-direction: row;
         justify-content: space-between;
     }
+
+    /* adjusting nav_links to fit example and use flex */
     .nav_links {
         flex-direction: row; 
     }
+    /* giving card class a flex-basis */
     .card {
         flex-basis: 275px;
     }
+    /* styling pricing class to use flex and match example */
     .pricing {
         flex-direction: row;
         align-items: center; 
     }
+    /* styling headers which are a DIRECT child of body to be sticky */
     body > header {
         position: sticky;
         top: 0;
     } 
 }
 
-/* prefers reduced motion */
+/* prefers reduced motion media query */
 @media screen and (prefers-reduced-motion: reduce) {
     /* The logo class should appear but not be animated if prefers-reduced-motion is selected in the accessibility preferences.  */
     #logo {
@@ -105,26 +118,27 @@ a:visited {
     }
 }
 
-/* and (orientation: portrait) */
+
+/* styling print view */
 @media print {
-    /* portrait styles */
-    /* Change the font on your body to Arial with a backup value of  Helvetica */
+    /* Styling font of body to Arial with a backup value of Helvetica */
     body {
         font-family: Arial, Helvetica;
         background: #f1f1f1 none; 
     }
 
-    /* Edit the nav/nav_links elements so that they are spaced according to the image above. */
+    /* nav/nav_links elements are spaced according to the example. */
     nav {
         width: 100%;
     }
+    /* styling nav links to use flex and match example */
     .nav_links {
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-around;
     }
 
-    /* Edit the pricing class so that the elements align along the bottom.  As long as it aligns along the bottom we don't care if the cards aren't the same height. */
+    /* pricing class so that the elements align along the bottom. */
     .pricing {
         justify-content: flex-end;
         align-content: flex-end;
@@ -132,7 +146,7 @@ a:visited {
         flex-wrap: nowrap;
     }
 
-    /* The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px.  */
+    /* The card elements have a solid border 2px of #45ADDD and use flex-basis of 325px.  */
     .card {
         border: 2px solid #45ADDD;
         flex-basis: 325px;
@@ -143,7 +157,7 @@ a:visited {
         display: none;
     }
 
-    /* Without using list-style-type add the thumbs up entity as shown in the cards. This is a challenge problem. You should not give or receive help when completing it.**For some people the thumbs up is not printing as yellow. That is fine. */
+    /* Thumbs up styling. */
     .card ul li:nth-child(even)::after {
         content: "\1F44D";
     }
